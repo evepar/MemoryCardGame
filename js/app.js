@@ -1,12 +1,13 @@
 /*
  * Create a list that holds all of your cards
- * "card open show"
- * "card match"
  * "card"
  * "card open"
+ * "card open show"
+ * "card match"
  * "card open nomatch"
  */
-const deck = ["card"]
+const deck = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt",
+              "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb"];
 
 /*
  * Display the cards on the page
@@ -30,6 +31,11 @@ function shuffle(array) {
     return array;
 }
 
+// https://www.w3schools.com/jsref/event_onclick.asp
+// object.onclick = function(){myScript}; OR object.addEventListener("click", myScript);
+
+// https://www.w3schools.com/jsref/prop_style_visibility.asp
+// object.style.visibility = "visible|hidden|collapse|initial|inherit"
 
 /*
  * set up the event listener for a card. If a card is clicked:
