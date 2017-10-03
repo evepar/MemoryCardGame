@@ -1,7 +1,12 @@
 /*
  * Create a list that holds all of your cards
+ * "card open show"
+ * "card match"
+ * "card"
+ * "card open"
+ * "card open nomatch"
  */
-
+const deck = ["card"]
 
 /*
  * Display the cards on the page
