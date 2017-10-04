@@ -34,7 +34,14 @@ function shuffle(array) {
 }
 
 // https://www.w3schools.com/jsref/event_onclick.asp
-// object.onclick = function(){myScript}; OR object.addEventListener("click", myScript);
+
+object.onclick = function(){
+  myScript
+};
+
+
+
+
 
 // https://www.w3schools.com/jsref/prop_style_visibility.asp
 // object.style.visibility = "visible|hidden|collapse|initial|inherit"
