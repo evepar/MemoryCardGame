@@ -35,16 +35,11 @@ function shuffle(array) {
 
 // https://www.w3schools.com/jsref/event_onclick.asp
 
-object.onclick = function(){
+document.onclick = function(){
   myScript
 };
 
-
-
-
-
-// https://www.w3schools.com/jsref/prop_style_visibility.asp
-// object.style.visibility = "visible|hidden|collapse|initial|inherit"
+// http://learn.jquery.com/
 
 /*
  * set up the event listener for a card. If a card is clicked:
