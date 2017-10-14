@@ -52,7 +52,6 @@ document.onclick = function(){
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 
-
 /*
 https://learn.jquery.com/about-jquery/how-jquery-works/
 
@@ -62,17 +61,13 @@ https://learn.jquery.com/about-jquery/how-jquery-works/
 </script>
 </body>
 
-The src attribute in the <script> element must point to a copy of jQuery. Download a copy of jQuery from the Downloading jQuery page and store the jquery.js file in the same directory as your HTML file.
+For click and most other events, you can prevent the default behavior by calling event.preventDefault()
+in the event handler:
 
-For click and most other events, you can prevent the default behavior by calling event.preventDefault() in the event handler:
-
-it is usually better to place your code in a separate JS file and load it on the page with a <script> element's src attribute.
-
-A callback is a function that is passed as an argument to another function and is executed after its parent function has completed. with (inside a function) or without arguments.
+A callback is a function that is passed as an argument to another function and is executed after its
+parent function has completed. with (inside a function) or without arguments.
 
 https://learn.jquery.com/using-jquery-core/faq/how-do-i-select-an-item-using-class-or-id/
-
-jQuery
 
 event listener for a card
 .bind()
@@ -80,6 +75,7 @@ Attach a handler to an event for the elements.
 
 .click()
 Bind an event handler to the “click” JavaScript event, or trigger that event on an element.
+
 .show()
 Display the matched elements.
 
