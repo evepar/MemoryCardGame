@@ -33,11 +33,21 @@ function shuffle(array) {
     return array;
 }
 
+shakeDeck.forEach(function(card){
+  //console.log(card);
+  var cardElement = '<li class="card"><i class="fa ' + card + '"></i></li>'
+  // console.log(cardElement);
+  jQuery(".deck").append(cardElement);
+})
+
 // https://www.w3schools.com/jsref/event_onclick.asp
 
-document.onclick = function(){
-  myScript
-};
+jQuery(".card").click(function(){
+  // console.log("click");
+  console.log(this);
+  console.log(jQuery(this));
+  jQuery(this).addClass("open show");
+});
 
 // http://learn.jquery.com/
 
