@@ -37,17 +37,27 @@ shakeDeck.forEach(function(card){
   //console.log(card);
   var cardElement = '<li class="card"><i class="fa ' + card + '"></i></li>'
   // console.log(cardElement);
-  jQuery(".deck").append(cardElement);
+  $(".deck").append(cardElement);
 })
 
 // https://www.w3schools.com/jsref/event_onclick.asp
 
-jQuery(".card").click(function(){
+$(".card").click(function(){
   // console.log("click");
   console.log(this);
-  console.log(jQuery(this));
-  jQuery(this).addClass("open show");
+  console.log($(this));
+  $(this).toggleClass("open show");
 });
+
+//$(this).addClass("open show");
+//removeClass("open show");
+//toggleClass
+//hasClass
+
+//https://www.w3schools.com/jsref/prop_element_classlist.asp
+
+$(".card").getElementById(".cardElement").classList.add("card open show");
+
 
 // http://learn.jquery.com/
 
@@ -64,12 +74,6 @@ jQuery(".card").click(function(){
 
 /*
 https://learn.jquery.com/about-jquery/how-jquery-works/
-
-<body><script src="jquery.js"></script>
-<script>
-
-</script>
-</body>
 
 For click and most other events, you can prevent the default behavior by calling event.preventDefault()
 in the event handler:
