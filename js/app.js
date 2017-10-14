@@ -54,7 +54,7 @@ document.onclick = function(){
 
 
 /*
-https://learn.jquery.com/about-jquery/how-jquery-works/ 
+https://learn.jquery.com/about-jquery/how-jquery-works/
 
 <body><script src="jquery.js"></script>
 <script>
@@ -70,7 +70,7 @@ it is usually better to place your code in a separate JS file and load it on the
 
 A callback is a function that is passed as an argument to another function and is executed after its parent function has completed. with (inside a function) or without arguments.
 
-https://learn.jquery.com/using-jquery-core/faq/how-do-i-select-an-item-using-class-or-id/ 
+https://learn.jquery.com/using-jquery-core/faq/how-do-i-select-an-item-using-class-or-id/
 
 jQuery
 
@@ -83,9 +83,8 @@ Bind an event handler to the “click” JavaScript event, or trigger that event
 .show()
 Display the matched elements.
 
-Add to a list of open cards 
+Add to a list of open cards
 .add()
 Create a new jQuery object with elements added to the set of matched elements.
 Don’t know how to check the list of open cards for a match
 */
-
