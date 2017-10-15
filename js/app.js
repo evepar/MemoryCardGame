@@ -40,13 +40,8 @@ shakeDeck.forEach(function(card){
   $(".deck").append(cardElement);
 })
 
-// https://www.w3schools.com/jsref/event_onclick.asp
-
 $(".card").click(function(){
-  // console.log("click");
-  console.log(this);
-  console.log($(this));
-  $(this).toggleClass("open show");
+  $(this).addClass("open show");
 });
 
 //$(this).addClass("open show");
@@ -55,11 +50,16 @@ $(".card").click(function(){
 //hasClass
 
 //https://www.w3schools.com/jsref/prop_element_classlist.asp
+// this opens all the cards: $(".card").addClass("card open show").classList.add("card open show");
 
-$(".card").getElementById(".cardElement").classList.add("card open show");
+// https://stackoverflow.com/questions/25152596/how-to-match-list-items-with-values-in-an-array
+// to check if cards match
+for(var i in initialCards){
+   $("#"+initialCards[i]).addClass("active");
+   console.log();
+ }
 
-
-// http://learn.jquery.com/
+// if cards don't match, close them
 
 /*
  * set up the event listener for a card. If a card is clicked:
@@ -74,9 +74,6 @@ $(".card").getElementById(".cardElement").classList.add("card open show");
 
 /*
 https://learn.jquery.com/about-jquery/how-jquery-works/
-
-For click and most other events, you can prevent the default behavior by calling event.preventDefault()
-in the event handler:
 
 A callback is a function that is passed as an argument to another function and is executed after its
 parent function has completed. with (inside a function) or without arguments.
