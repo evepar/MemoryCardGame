@@ -59,6 +59,9 @@ for(var i in initialCards){
    console.log();
  }
 
+// if match http://api.jquery.com/animate/ https://www.w3schools.com/jquery/jquery_animate.asp
+// or change color to green for a moment
+
 // if cards don't match, close them
 
 /*
