@@ -41,8 +41,25 @@ shakeDeck.forEach(function(card){
 })
 
 $(".card").click(function(){
-  $(this).addClass("open show");
+  var $card = $(this)
+  $card.addClass("open show");
+  if (!$compare) {
+    $compare = $card;
+  } else if ($compare[0].innerHTML === $card[0].innerHTML) {
+    console.log("match");
+    $card.addClass("match");
+    $compare.addClass("match");
+    $compare = null;
+  } else {
+    console.log("doesn't match");
+    setTimeout(function(){
+      $card.removeClass("open show");
+      $compare.removeClass("open show");
+      $compare = null;
+    },100)
+  }
 });
+
 
 //$(this).addClass("open show");
 //removeClass("open show");
@@ -58,6 +75,8 @@ for(var i in initialCards){
    $("#"+initialCards[i]).addClass("active");
    console.log();
  }
+
+var $compare = null
 
 // if match http://api.jquery.com/animate/ https://www.w3schools.com/jquery/jquery_animate.asp
 // or change color to green for a moment
