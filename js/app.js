@@ -20,7 +20,7 @@ const shakeDeck = shuffle(initialCards);
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
+    const currentIndex = array.length, temporaryValue, randomIndex;
 
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
@@ -29,19 +29,22 @@ function shuffle(array) {
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
     }
-
     return array;
 }
 
-shakeDeck.forEach(function(card){
+// index for each card https://stackoverflow.com/questions/1960473/unique-values-in-an-array
+
+shakeDeck.forEach(function(card, index){
   //console.log(card);
-  var cardElement = '<li class="card"><i class="fa ' + card + '"></i></li>'
+  const cardElement = '<li class="card"><i class="fa ' + card + '"></i></li>'
   // console.log(cardElement);
   $(".deck").append(cardElement);
+  const uniqueIndex = cardElement
+  $(".deck").append(uniqueIndex);
 })
 
 $(".card").click(function(){
-  var $card = $(this)
+  const $card = $(this)
   $card.addClass("open show");
   if (!$compare) {
     $compare = $card;
@@ -60,23 +63,7 @@ $(".card").click(function(){
   }
 });
 
-
-//$(this).addClass("open show");
-//removeClass("open show");
-//toggleClass
-//hasClass
-
-//https://www.w3schools.com/jsref/prop_element_classlist.asp
-// this opens all the cards: $(".card").addClass("card open show").classList.add("card open show");
-
-// https://stackoverflow.com/questions/25152596/how-to-match-list-items-with-values-in-an-array
-// to check if cards match
-for(var i in initialCards){
-   $("#"+initialCards[i]).addClass("active");
-   console.log();
- }
-
-var $compare = null
+const $compare = null
 
 // if match http://api.jquery.com/animate/ https://www.w3schools.com/jquery/jquery_animate.asp
 // or change color to green for a moment
