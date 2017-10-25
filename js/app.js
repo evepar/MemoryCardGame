@@ -32,8 +32,6 @@ function shuffle(array) {
     return array;
 }
 
-// index for each card https://stackoverflow.com/questions/1960473/unique-values-in-an-array
-
 shakeDeck.forEach(function(card, index){
   //console.log(card);
   const cardElement = '<li class="card"><i class="fa ' + card + '"></i></li>'
@@ -42,6 +40,15 @@ shakeDeck.forEach(function(card, index){
   const uniqueIndex = cardElement
   $(".deck").append(uniqueIndex);
 })
+
+// index for each card https://stackoverflow.com/questions/1960473/unique-values-in-an-array
+
+function uniqueValue(value, index, self) {
+    return self.indexOf(value) === index;
+};
+
+const uniqueDeck = initialCards.filter(uniqueValue);
+
 
 $(".card").click(function(){
   const $card = $(this)
