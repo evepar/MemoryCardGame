@@ -9,7 +9,7 @@
 const initialCards = ["fa-diamond", "fa-diamond", "fa-paper-plane-o", "fa-paper-plane-o", "fa-anchor", "fa-anchor", "fa-bolt", "fa-bolt",
               "fa-cube", "fa-cube", "fa-leaf", "fa-leaf", "fa-bicycle", "fa-bicycle", "fa-bomb", "fa-bomb"];
 
-const shakeDeck = shuffle(initialCards);
+let shakeDeck = shuffle(initialCards);
 
 /*
  * Display the cards on the page
@@ -20,7 +20,7 @@ const shakeDeck = shuffle(initialCards);
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
+    let currentIndex = array.length, temporaryValue, randomIndex;
 
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
@@ -37,21 +37,14 @@ shakeDeck.forEach(function(card, index){
   const cardElement = '<li class="card"><i class="fa ' + card + '"></i></li>'
   // console.log(cardElement);
   $(".deck").append(cardElement);
-  const uniqueIndex = cardElement
-  $(".deck").append(uniqueIndex);
 })
-
-// index for each card https://stackoverflow.com/questions/1960473/unique-values-in-an-array
-
-function uniqueValue(value, index, self) {
-    return self.indexOf(value) === index;
-};
-
-const uniqueDeck = initialCards.filter(uniqueValue);
-
 
 $(".card").click(function(){
   const $card = $(this)
+  // check if card does not have the class open/ show Karol
+  // before adding open/ show Karol
+  // jQuey hasClass method Karol
+  // check if the compare array's length is less than 2 Karol
   $card.addClass("open show");
   if (!$compare) {
     $compare = $card;
@@ -70,7 +63,10 @@ $(".card").click(function(){
   }
 });
 
-const $compare = null
+let $compare = null
+
+
+// timer https://stackoverflow.com/questions/2604450/how-to-create-a-jquery-clock-timer#answer-19744442
 
 // if match http://api.jquery.com/animate/ https://www.w3schools.com/jquery/jquery_animate.asp
 // or change color to green for a moment
