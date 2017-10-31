@@ -12,8 +12,8 @@ const initialCards = ["fa-diamond", "fa-diamond", "fa-paper-plane-o", "fa-paper-
 let shakeDeck = shuffle(initialCards);
 
 // reshuffle the deck https://stackoverflow.com/questions/6653556/jquery-javascript-function-to-clear-all-the-fields-of-a-form
-// button is class "restart" in HTML
-$('#myForm').trigger("reset");
+// button's class is "restart" in HTML
+//$('#myForm').trigger("reset");
 
 /*
  * Display the cards on the page
@@ -45,11 +45,7 @@ shakeDeck.forEach(function(card, index){
 
 $(".card").click(function(){
   const $card = $(this)
-  // check if card does not have the class open/ show Karol
-  // before adding open/ show Karol
-  // jQuery hasClass method Karol
-  // check if the compare array's length is less than 2 Karol
-  if $(card:not(:hasClass("open show"))) {
+  if (!$card.hasClass("open show")) {
     $card.addClass("open show");
     if (!$compare) {
       $compare = $card;
@@ -58,6 +54,10 @@ $(".card").click(function(){
       $card.addClass("match");
       $compare.addClass("match");
       $compare = null;
+      matchCount++;
+        if (matchCount === 8){
+        // function gameover
+        }
     } else {
       console.log("doesn't match");
       setTimeout(function(){
@@ -65,29 +65,31 @@ $(".card").click(function(){
         $compare.removeClass("open show");
         $compare = null;
       },100)
+  }
   } else {
     $card.attr('disabled', true);
-  }
   }
 });
 
 let $compare = null
-
+let matchCount = 0
 
 // timer https://stackoverflow.com/questions/2604450/how-to-create-a-jquery-clock-timer#answer-19744442
 // and end timer when game is won
  $(document).ready(function(){
          function getdate(){
-                var today = new Date();
-            var h = today.getHours();
-            var m = today.getMinutes();
-            var s = today.getSeconds();
-             if(s<10){
-                 s = "0"+s;
-             }
-
-            $("h1").text(h+" : "+m+" : "+s);
-             setTimeout(function(){getdate()}, 500);
+                var start = new Date().getTime()
+             setInterval(function(){
+               var currentTime = new Date().getTime()
+               var elapsedTime = currentTime - start
+               console.log(elapsedTime)
+               let m = Math.floor((elapsedTime % (1000 * 60 * 60)) / (1000 * 60));
+               let s = Math.floor((elapsedTime % (1000 * 60)) / 1000);
+               if(s<10){
+                   s = "0"+s;
+               }
+               $("h1").text(m+" : "+s);
+             }, 500);
             }
 
         $("button").click(getdate);
