@@ -57,6 +57,7 @@ $(".card").click(function(){
       matchCount++;
         if (matchCount === 8){
         // function gameover
+        clearInterval(timer)
         }
     } else {
       console.log("doesn't match");
@@ -73,29 +74,29 @@ $(".card").click(function(){
 
 let $compare = null
 let matchCount = 0
-
+var timer
 // timer https://stackoverflow.com/questions/2604450/how-to-create-a-jquery-clock-timer#answer-19744442
 // and end timer when game is won
  $(document).ready(function(){
          function getdate(){
                 var start = new Date().getTime()
-             setInterval(function(){
+               timer = setInterval(function(){
                var currentTime = new Date().getTime()
                var elapsedTime = currentTime - start
-               console.log(elapsedTime)
+               // console.log(elapsedTime)
                let m = Math.floor((elapsedTime % (1000 * 60 * 60)) / (1000 * 60));
                let s = Math.floor((elapsedTime % (1000 * 60)) / 1000);
                if(s<10){
                    s = "0"+s;
                }
-               $("h1").text(m+" : "+s);
+               $("h3").text(m+" : "+s);
              }, 500);
             }
-
         $("button").click(getdate);
     });
 
 
+//modal https://getbootstrap.com/docs/4.0/components/modal/
 
 /*
  * set up the event listener for a card. If a card is clicked:
