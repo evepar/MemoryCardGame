@@ -56,8 +56,8 @@ $(".card").click(function(){
       $compare = null;
       matchCount++;
         if (matchCount === 8){
-        // function gameover
         clearInterval(timer)
+        gameover()
         }
     } else {
       console.log("doesn't match");
@@ -95,8 +95,16 @@ var timer
         $("button").click(getdate);
     });
 
-
 //modal https://getbootstrap.com/docs/4.0/components/modal/
+function gameover() {
+  <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        "You win!"
+      </div>
+    </div>
+  </div>
+}
 
 /*
  * set up the event listener for a card. If a card is clicked:
