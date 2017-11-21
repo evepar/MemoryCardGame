@@ -48,6 +48,8 @@ function makeDeck() {
 
 makeDeck();
 
+//https://www.w3schools.com/jsref/event_onclick.asp
+
 function playGame() {
   $(".card").click(function(){
     const $card = $(this)
@@ -76,6 +78,16 @@ function playGame() {
     } else {
       $card.attr('disabled', true);
     }
+    $card.onclick = function lessStars() {
+        clicks ++;
+        if (clicks <= 15) {
+          console.log($('.fa fa-star1').addClass('star-lost'))
+        } else if (16 <= clicks <= 20) {
+          $('.fa fa-star2').addClass('star-lost')
+        } else {
+          $('.fa fa-star3').addClass('star-lost')
+        }
+      }
   });
 }
 

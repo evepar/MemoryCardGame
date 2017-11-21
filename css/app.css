@@ -112,6 +112,10 @@ h1 {
     display: inline-block;
 }
 
+.star-lost {
+    color: #c7d3e5;
+}
+
 .score-panel .restart {
     float: right;
     cursor: pointer;
