@@ -81,6 +81,8 @@ function playGame() {
 
 playGame();
 
+//modal https://getbootstrap.com/docs/4.0/components/modal/
+
 let $compare = null
 let matchCount = 0
 var timer
@@ -108,15 +110,9 @@ function timeGame() {
 
 timeGame();
 
-//modal https://getbootstrap.com/docs/4.0/components/modal/
-
-// reset page https://stackoverflow.com/questions/30347724/refresh-page-with-reset-button
-//$("#restart").click(function(){
-//  document.location.reload();
-//});
-
 function resetGame() {
   clickCount = 0;
+  shuffle(initialCards);
   makeDeck();
   playGame();
   timeGame();
