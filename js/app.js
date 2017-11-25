@@ -63,7 +63,7 @@ function lessStars(clicks) {
 //https://www.w3schools.com/howto/howto_css_modals.asp
 
 function openModal() {
-  $("#time-needed").text(timeNeeded);
+  $("#time-needed").text("timeNeeded");
   //inject score into the modal
   $("#myModal").modal("show");
 }
