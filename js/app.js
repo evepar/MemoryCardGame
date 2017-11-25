@@ -50,11 +50,30 @@ makeDeck();
 
 //https://www.w3schools.com/jsref/event_onclick.asp
 
+var clicks = 0;
+
+function lessStars(clicks) {
+    var starRating = [17,22,27];
+    var stars = starRating.length;
+    $('.stars').children().each(function(i, starElem) {
+    if (starRating[i] === clicks) $(starElem).addClass("star-lost")
+  });
+}
+
+function openModal() {
+  //console.log(timeNeeded)
+  $("#time-needed").text(timeNeeded);
+  //inject score into the modal
+  $("#myModal").modal("show");
+}
+
 function playGame() {
   $(".card").click(function(){
     const $card = $(this)
     if (!$card.hasClass("open show")) {
       $card.addClass("open show");
+      clicks ++;
+      lessStars(clicks)
       if (!$compare) {
         $compare = $card;
       } else if ($compare[0].innerHTML === $card[0].innerHTML) {
@@ -65,7 +84,7 @@ function playGame() {
         matchCount++;
           if (matchCount === 8){
           clearInterval(timer)
-          $('.myModal').modal('show')
+          openModal();
           }
       } else {
         console.log("doesn't match");
@@ -78,28 +97,17 @@ function playGame() {
     } else {
       $card.attr('disabled', true);
     }
-    $card.onclick = function lessStars() {
-        clicks ++;
-        if (clicks <= 15) {
-          console.log($('.fa fa-star1').addClass('star-lost'))
-        } else if (16 <= clicks <= 20) {
-          $('.fa fa-star2').addClass('star-lost')
-        } else {
-          $('.fa fa-star3').addClass('star-lost')
-        }
-      }
   });
 }
 
 playGame();
 
-//modal https://getbootstrap.com/docs/4.0/components/modal/
-
 let $compare = null
 let matchCount = 0
-var timer
+var timer;
+let timeNeeded = "";
+
 // timer https://stackoverflow.com/questions/2604450/how-to-create-a-jquery-clock-timer#answer-19744442
-// and end timer when game is won
 function timeGame() {
  $(document).ready(function(){
          function getdate(){
@@ -107,12 +115,12 @@ function timeGame() {
                timer = setInterval(function(){
                var currentTime = new Date().getTime()
                var elapsedTime = currentTime - start
-               // console.log(elapsedTime)
                let m = Math.floor((elapsedTime % (1000 * 60 * 60)) / (1000 * 60));
                let s = Math.floor((elapsedTime % (1000 * 60)) / 1000);
                if(s<10){
                    s = "0"+s;
                }
+               timeNeeded = m + ":" + s;
                $("h3").text(m+" : "+s);
              }, 500);
             }
@@ -124,6 +132,9 @@ timeGame();
 
 function resetGame() {
   clickCount = 0;
+  timeNeeded = "";
+  clicks = 0;
+  $('.stars').children().removeClass("star-lost")
   shuffle(initialCards);
   makeDeck();
   playGame();
