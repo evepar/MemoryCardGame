@@ -39,9 +39,7 @@ function shuffle(array) {
 function makeDeck() {
   $(".deck").empty()
   shakeDeck.forEach(function(card, index){
-    //console.log(card);
     const cardElement = '<li class="card"><i class="fa ' + card + '"></i></li>'
-    // console.log(cardElement);
     $(".deck").append(cardElement);
   })
 }
@@ -60,10 +58,14 @@ function lessStars(clicks) {
   });
 }
 
+function countMoves(clicks) {
+  $('.moves')
+}
+
 //https://www.w3schools.com/howto/howto_css_modals.asp
 
 function openModal() {
-  $("#time-needed").text("timeNeeded");
+  $("#time-needed").text(timeNeeded);
   //inject score into the modal
   $("#myModal").modal("show");
 }
@@ -140,6 +142,7 @@ function resetGame() {
   makeDeck();
   playGame();
   timeGame();
+  countMoves();
 }
 
 $('.restart').click(resetGame);
