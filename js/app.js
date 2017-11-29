@@ -59,35 +59,47 @@ function lessStars(clicks) {
 }
 
 function countMoves(clicks) {
-  $('.moves')
+  $('.moves').text(clicks);
 }
 
 //https://www.w3schools.com/howto/howto_css_modals.asp
 
 function openModal() {
   $("#time-needed").text(timeNeeded);
+  console.log(timeNeeded);
   //inject score into the modal
-  $("#myModal").modal("show");
+  $("#moves-needed").text(clicks);
+  $("#score-panel").text(lessStars(clicks));
+  $("#myModal").modal("show")
 }
+
+var timerOn = false;
 
 function playGame() {
   $(".card").click(function(){
+    if (!timerOn) {
+      getDate();
+      timerOn = true;
+    }
     const $card = $(this)
     if (!$card.hasClass("open show")) {
       $card.addClass("open show");
-      clicks ++;
-      lessStars(clicks)
       if (!$compare) {
         $compare = $card;
-      } else if ($compare[0].innerHTML === $card[0].innerHTML) {
+        return
+      }
+      clicks++
+      lessStars(clicks);
+      countMoves(clicks);
+      if ($compare[0].innerHTML === $card[0].innerHTML) {
         console.log("match");
         $card.addClass("match");
         $compare.addClass("match");
         $compare = null;
         matchCount++;
           if (matchCount === 8){
-          clearInterval(timer)
           openModal();
+          clearInterval(timer)
           }
       } else {
         console.log("doesn't match");
@@ -111,9 +123,8 @@ var timer;
 let timeNeeded = "";
 
 // timer https://stackoverflow.com/questions/2604450/how-to-create-a-jquery-clock-timer#answer-19744442
-function timeGame() {
- $(document).ready(function(){
-         function getdate(){
+
+function getDate(){
                var start = new Date().getTime()
                timer = setInterval(function(){
                var currentTime = new Date().getTime()
@@ -125,23 +136,19 @@ function timeGame() {
                }
                timeNeeded = m + ":" + s;
                $("h3").text(m+" : "+s);
+               console.log(timeNeeded);
              }, 500);
-            }
-        $("button").click(getdate);
-    });
-}
-
-timeGame();
+    };
 
 function resetGame() {
   clickCount = 0;
   timeNeeded = "";
+  timerOn = false;
   clicks = 0;
   $('.stars').children().removeClass("star-lost")
   shuffle(initialCards);
   makeDeck();
   playGame();
-  timeGame();
   countMoves();
 }
 
