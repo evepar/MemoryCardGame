@@ -51,7 +51,7 @@ makeDeck();
 var clicks = 0;
 
 function lessStars(clicks) {
-    var starRating = [17,22,27];
+    var starRating = [17,22];
     var stars = starRating.length;
     $('.stars').children().each(function(i, starElem) {
     if (starRating[i] === clicks) $(starElem).addClass("star-lost")
