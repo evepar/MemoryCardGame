@@ -1,5 +1,21 @@
-@media only screen and (min-width: 320px) {
-  .deck .card.open {
-      font-size: 60px;
+@media only screen and (max-width: 450px) {
+
+  .deck .card.open,
+  .deck .card.show,
+  .deck .card.match,
+  .deck .card.nomatch {
+      font-size: 40px;
+  }
+  .deck .card,
+  .deck .card.open,
+  .deck .card.show,
+  .deck .card.match,
+  .deck .card.nomatch {
+    width: 55px;
+    height: 75px;
+  }
+  .score-panel {
+    width: 85%;
+    height: 85%;
   }
 }
