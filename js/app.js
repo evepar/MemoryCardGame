@@ -143,10 +143,11 @@ function getDate(){
 function resetGame() {
   clickCount = 0;
   timeNeeded = "";
-  timerOn = false;
+  timer = false;
   clicks = 0;
   $('.stars').children().removeClass("star-lost")
   shuffle(initialCards);
+  getDate();
   makeDeck();
   playGame();
   countMoves();
