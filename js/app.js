@@ -58,6 +58,11 @@ function lessStars(clicks) {
   });
 }
 
+function forStar() {
+  var val = $(".stars").html();
+ return val;
+}
+
 function countMoves(clicks) {
   $('.moves').text(clicks);
 }
@@ -69,7 +74,8 @@ function openModal() {
   console.log(timeNeeded);
   //inject score into the modal
   $("#moves-needed").text(clicks);
-  $("#score-panel").text(lessStars());
+  //$("#score-panel").text(lessStars());
+  $("#score-panel").html(forStar());
   $("#myModal").modal("show")
 }
 
