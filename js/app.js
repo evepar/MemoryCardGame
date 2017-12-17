@@ -69,7 +69,7 @@ function openModal() {
   console.log(timeNeeded);
   //inject score into the modal
   $("#moves-needed").text(clicks);
-  $("#score-panel").text(lessStars(clicks));
+  $("#score-panel").text(lessStars());
   $("#myModal").modal("show")
 }
 
@@ -107,7 +107,7 @@ function playGame() {
           $card.removeClass("open show");
           $compare.removeClass("open show");
           $compare = null;
-        },100)
+        },300)
     }
     } else {
       $card.attr('disabled', true);
