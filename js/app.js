@@ -127,6 +127,7 @@ let $compare = null
 let matchCount = 0
 var timer;
 let timeNeeded = "";
+var timeSeconds = 0;
 
 // timer https://stackoverflow.com/questions/2604450/how-to-create-a-jquery-clock-timer#answer-19744442
 
@@ -146,6 +147,11 @@ function getDate(){
              }, 500);
     };
 
+function resetTimer() {
+  timeSeconds = -1;
+  getDate();
+}
+
 function resetGame() {
   clickCount = 0;
   timeNeeded = "";
@@ -153,10 +159,10 @@ function resetGame() {
   clicks = 0;
   $('.stars').children().removeClass("star-lost")
   shuffle(initialCards);
-  getDate();
   makeDeck();
   playGame();
   countMoves();
+  resetTimer();
 }
 
 $('.restart').click(resetGame);
