@@ -127,7 +127,7 @@ let $compare = null
 let matchCount = 0
 var timer;
 let timeNeeded = "";
-var timeSeconds = 0;
+var allSeconds = 0;
 
 // timer https://stackoverflow.com/questions/2604450/how-to-create-a-jquery-clock-timer#answer-19744442
 
@@ -148,7 +148,9 @@ function getDate(){
     };
 
 function resetTimer() {
-  timeSeconds = -1;
+  var timerVariable = setInterval(getDate, 100);
+  timeNeeded = "";
+  clearInterval(getDate);
   getDate();
 }
 
